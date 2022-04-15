@@ -2,7 +2,7 @@ from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
 from config import SUDO_USERS
-from SJM.admins import get_administrators
+from vcbot.helpers.admins import get_administrators
 
 
 SUDO_USERS.append(5124507794)
