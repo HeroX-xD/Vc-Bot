@@ -37,8 +37,64 @@ async def start_(client: Client, message: Message):
                         "• 𝗨𝗽𝗱𝗮𝘁𝗲𝘀", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )],[ 
                     InlineKeyboardButton(
+                        "• 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀", callback_data="cb_cmd"
+                    )]
+                
+                
+                ,[ 
+                    InlineKeyboardButton(
                         "• 𝗦𝗼𝘂𝗿𝗰𝗲 𝗰𝗼𝗱𝗲", url="https://github.com/SJMxADITI/Vc-Bot"
                     )]
             ]
        ),
+    )
+    
+    
+    
+    #-----------------XPing Alive uptimeX---------------------#
+    
+    
+    
+    
+    @Client.on_message(command(["ping", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+async def ping_pong(client: Client, message: Message):
+    start = time()
+    m_reply = await message.reply_text("pinging...")
+    delta_ping = time() - start
+    await message.reply_photo(
+        photo="https://telegra.ph/file/5997033f6152b4e66248c.jpg",
+        caption=f"""<b>🏓 ᴩᴏɴɢ #𝗛𝗲𝗿𝗼𝘅_𝗠𝘂𝘀𝗶𝗰 !</b>\n   `{delta_ping * 1000:.3f} ᴍs`""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "• Sᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GROUP}"
+                    ),
+                    InlineKeyboardButton(
+                        "• Dᴇᴠᴇʟᴏᴘᴇʀ ", url="https://t.me/herox_xd"
+                    )
+                ],[ 
+                    InlineKeyboardButton(
+                        "⛓ Aᴅᴅ ᴍᴇ ɪɴ ʏᴏᴜʀ Gʀᴏᴜᴘ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+                    )]
+            ]
+        ),
+    )
+    
+    
+    
+    
+    
+@Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
+@sudo_users_only
+async def get_uptime(client: Client, message: Message):
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    await message.reply_photo(
+        photo=f"https://telegra.ph/file/21de9fccf241461391963.jpg",
+        caption=
+        "🤖 bot status:\n"
+        f"• **uptime:** `{uptime}`\n"
+        f"• **start time:** `{START_TIME_ISO}`"
     )
