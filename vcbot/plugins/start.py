@@ -1,6 +1,6 @@
 import asyncio
 from helpers.filters import command
-from config import BOT_NAME as bn, BOT_USERNAME as bu, SUPPORT_GROUP, OWNER_USERNAME, UPDATES_CHANNEL
+from config import BOT_NAME as bn, BOT_USERNAME as bu, SUPPORT_GROUP, OWNER_USERNAME, UPDATES_CHANNEL, START_IMG
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -8,7 +8,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 @Client.on_message(command("start") & filters.private & ~filters.group & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/21de9fccf241461391963.jpg",
+        photo=f"{START_IMG}",
         caption=f"""**
 🖤 𝗛𝗲𝗹𝗹𝗼 {message.from_user.mention()} !
          𝗜 𝗔𝗺 [{bn}](t.me/{bu}) 𝗜 𝗰𝗮𝗻 𝗽𝗹𝗮𝘆 𝗺𝘂𝘀𝗶𝗰 𝗶𝗻 𝘃𝗰 🤍
