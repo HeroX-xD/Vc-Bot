@@ -12,6 +12,7 @@ ARQ_API_URL = "https://arq.hamker.in/"
 BOT_TOKEN = getenv("BOT_TOKEN","")
 BOT_NAME = getenv("BOT_NAME","𝗛𝗲𝗿𝗼𝘅 𝗠𝘂𝘀𝗶𝗰")
 BOT_USERNAME = getenv("BOT_USERNAME", "Herox_Music_RoBot")
+START_IMG = getenv("START_IMG", "https://telegra.ph/file/21de9fccf241461391963.jpg")
 OWNER_USERNAME = getenv("OWNER_USERNAME", "Herox_xd")
 UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "Techno_Trickop")
 SUPPORT_GROUP = getenv("SUPPORT_GROUP", "TrickyAbhii_Op")
